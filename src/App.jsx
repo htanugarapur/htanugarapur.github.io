@@ -815,7 +815,7 @@ export default function App() {
               <h3 className="ecard-deg">Artificial Intelligence &amp; Data Science</h3>
               <p className="ecard-inst">Anna University, MIT Campus · Chennai</p>
               <div className="ecard-row">
-                <span>5th Semester</span>
+                <span>6th Semester</span>
                 <span className="ecard-score">CGPA 7.95</span>
               </div>
             </div>
