@@ -205,7 +205,7 @@ const CSS = `
   --w: 'Rye', 'Cormorant Garamond', serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; zoom: var(--z, 1); }
 
 body {
   background: var(--bg);
@@ -257,20 +257,12 @@ a, button { cursor: none; }
 .nlink:hover::after, .nlink.on::after { width: 100%; }
 
 /* ── Hero ── */
-.hero { min-height: 100vh; display: flex; flex-direction: column; padding: 0 3.5rem; position: relative; overflow: hidden; }
+.hero { min-height: calc(100vh / var(--z, 1)); display: flex; flex-direction: column; padding: 0 3.5rem; position: relative; overflow: hidden; }
 .htop { display: flex; align-items: flex-start; justify-content: space-between; padding-top: 7rem; padding-bottom: 1rem; }
 .eyebrow { font-size: .66rem; letter-spacing: .22em; text-transform: uppercase; color: var(--acc); }
-.htop-socials { display: flex; gap: .7rem; }
-.hspill {
-  display: inline-flex; align-items: center; gap: .4rem;
-  font-size: .67rem; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--mid); text-decoration: none; border: 1px solid var(--faint);
-  padding: .4rem .85rem; border-radius: 100px; transition: border-color .2s, color .2s;
-}
-.hspill:hover { border-color: var(--acc2); color: var(--acc); }
 
-.n1 { font-size: clamp(2.6rem, 5.6vw, 5.8rem); display: block; }
-.n2 { font-size: clamp(2.6rem, 5.6vw, 5.8rem); display: block; color: var(--mid); }
+.n1 { font-size: clamp(2.6rem, calc(5.6vw / var(--z, 1)), 5.8rem); display: block; }
+.n2 { font-size: clamp(2.6rem, calc(5.6vw / var(--z, 1)), 5.8rem); display: block; color: var(--mid); }
 .n2 em { font-style: italic; color: var(--acc); }
 
 .hmain { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 3.5rem; align-items: center; flex: 1; padding: 1.5rem 0; }
@@ -339,15 +331,7 @@ a, button { cursor: none; }
 .hstat strong { font-family: var(--s); font-size: 2.4rem; font-weight: 300; color: var(--ink); display: block; line-height: 1; letter-spacing: -.02em; }
 .hstat span { font-size: .92rem; letter-spacing: .12em; color: var(--mid); text-transform: uppercase; display: block; margin-top: .4rem; }
 
-.hbar { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; border-top: 1px solid var(--faint); padding: 1.5rem 0 2.5rem; }
-.hcards { display: flex; gap: .6rem; flex-wrap: wrap; }
-.hcard {
-  display: inline-flex; align-items: center; gap: .55rem; padding: .55rem .95rem;
-  border: 1px solid var(--faint); border-radius: 3px; text-decoration: none; color: var(--mid);
-  font-size: .74rem; transition: border-color .25s, background .25s;
-}
-.hcard:hover { border-color: var(--acc2); background: var(--surf); }
-.hcard-lbl { font-weight: 400; color: var(--ink); }
+.hbar { display: flex; align-items: center; justify-content: flex-end; gap: 1.5rem; border-top: 1px solid var(--faint); padding: 1.5rem 0 2.5rem; }
 .hbar-scroll { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
 .hbar-hint { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mid); }
 .hbar-line { width: 40px; height: 1px; background: var(--faint); }
@@ -396,8 +380,8 @@ a, button { cursor: none; }
 .map.open .roller.bot { top: calc(100% - 2.2rem); }
 
 .sec-hd { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.8rem; }
-.sec-n { font-family: var(--s); font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; color: var(--acc2); line-height: 1; letter-spacing: -.04em; user-select: none; }
-.sec-t { font-family: var(--s); font-size: clamp(1.4rem, 2.5vw, 2.2rem); font-weight: 300; color: var(--ink); letter-spacing: -.01em; }
+.sec-n { font-family: var(--s); font-size: clamp(3rem, calc(6vw / var(--z, 1)), 5.5rem); font-weight: 300; color: var(--acc2); line-height: 1; letter-spacing: -.04em; user-select: none; }
+.sec-t { font-family: var(--s); font-size: clamp(1.4rem, calc(2.5vw / var(--z, 1)), 2.2rem); font-weight: 300; color: var(--ink); letter-spacing: -.01em; }
 
 /* ── Experience / research rows ── */
 .exp-list { display: flex; flex-direction: column; }
@@ -432,7 +416,7 @@ a, button { cursor: none; }
 .pub-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: .9rem; }
 .pub-status { font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--mid); border: 1px solid var(--acc2); border-radius: 2px; padding: .25rem .6rem; white-space: nowrap; }
 .pub-type { font-size: .63rem; letter-spacing: .18em; text-transform: uppercase; color: var(--acc); }
-.pub-title { font-family: var(--s); font-size: clamp(1rem, 1.6vw, 1.4rem); font-weight: 500; line-height: 1.35; margin-bottom: .7rem; }
+.pub-title { font-family: var(--s); font-size: clamp(1rem, calc(1.6vw / var(--z, 1)), 1.4rem); font-weight: 500; line-height: 1.35; margin-bottom: .7rem; }
 .pub-auth { font-size: .76rem; color: var(--acc); letter-spacing: .04em; margin-bottom: 1.1rem; }
 .pub-abs { font-size: .82rem; color: var(--mid); line-height: 1.85; }
 
@@ -451,7 +435,7 @@ a, button { cursor: none; }
 
 /* ── Contact ── */
 .contact-body { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-.contact-hl { font-family: var(--s); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 300; line-height: 1.12; color: var(--ink); }
+.contact-hl { font-family: var(--s); font-size: clamp(2rem, calc(4vw / var(--z, 1)), 3.4rem); font-weight: 300; line-height: 1.12; color: var(--ink); }
 .contact-hl em { font-style: italic; color: var(--acc); }
 .csocials { display: flex; flex-direction: column; gap: .9rem; }
 .csocial {
@@ -478,7 +462,6 @@ a, button { cursor: none; }
   .nav { padding: 1rem 1.5rem; }
   .nlinks { display: none; }
   .hero { padding: 0 1rem; }
-  .htop-socials { display: none; }
   .hmain { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .hid { flex-direction: column; align-items: flex-start; gap: 1.6rem; }
   .poster { width: 180px; }
@@ -488,7 +471,6 @@ a, button { cursor: none; }
   .hstat { padding: 1rem .8rem; min-width: 0; }
   .hstat strong { font-size: 1.6rem; }
   .hstat span { font-size: .62rem; letter-spacing: .08em; }
-  .hcards { display: none; }
   .sec-in { padding: 0 1rem; }
   .map { padding: 2.4rem .4rem 2.6rem; }
   .map-paper { padding: 2rem 1.1rem 1.8rem; }
@@ -593,8 +575,9 @@ export default function App() {
   useEffect(() => {
     const move = (e) => {
       if (!cursorRef.current) return;
-      cursorRef.current.style.left = e.clientX + "px";
-      cursorRef.current.style.top  = e.clientY + "px";
+      const z = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--z")) || 1;
+      cursorRef.current.style.left = e.clientX / z + "px";
+      cursorRef.current.style.top  = e.clientY / z + "px";
     };
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
@@ -659,13 +642,6 @@ export default function App() {
       <section id="hero" className="hero">
         <div className="htop">
           <p className="eyebrow">AI Researcher · Speech, Hearing &amp; Trustworthy AI</p>
-          <div className="htop-socials">
-            {SOCIALS.map(({ Icon, label, href }) => (
-              <a key={label} href={href} className="hspill" target="_blank" rel="noopener noreferrer">
-                <Icon size={12} /> {label}
-              </a>
-            ))}
-          </div>
         </div>
 
         <div className="hmain">
@@ -695,13 +671,6 @@ export default function App() {
         </div>
 
         <div className="hbar">
-          <div className="hcards">
-            {SOCIALS.map(({ Icon, label, href }) => (
-              <a key={label} href={href} className="hcard" target="_blank" rel="noopener noreferrer">
-                <Icon size={13} /><span className="hcard-lbl">{label}</span>
-              </a>
-            ))}
-          </div>
           <div className="hbar-scroll"><span className="hbar-hint">Scroll to unroll</span><div className="hbar-line" /></div>
         </div>
       </section>
