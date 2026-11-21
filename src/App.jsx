@@ -180,6 +180,7 @@ const CERTS = [
   "Node.js — IBM",
   "Express.js — IBM",
   "Big Data Computing — NPTEL",
+  "Design Thinking — NPTEL",
   "MS Office — Microsoft",
 ];
 
@@ -664,7 +665,7 @@ export default function App() {
           </div>
 
           <div className="hstats-grid">
-            {[["2","Publications"],["3","Institutions"],[String(PROJ.length),"Projects"],["8","Certifications"]].map(([n, l]) => (
+            {[["2","Publications"],["3","Institutions"],[String(PROJ.length),"Projects"],[String(CERTS.length),"Certifications"]].map(([n, l]) => (
               <div className="hstat" key={l}><strong>{n}</strong><span>{l}</span></div>
             ))}
           </div>
